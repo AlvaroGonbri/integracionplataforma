@@ -1,4 +1,8 @@
 package com.rrhh.gestion.repository;
 
-public interface EmpleadoRepository extends JpaRepositori<Empleado, String> {
+
+import com.rrhh.gestion.entity.Empleado;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EmpleadoRepository extends JpaRepository <Empleado, String> {
 }
