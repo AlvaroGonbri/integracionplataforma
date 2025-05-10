@@ -1,4 +1,6 @@
 package com.rrhh.gestion.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 @Entity
 @Table(name="empleado")
@@ -8,6 +10,11 @@ public class Empleado {
     private String nombre;
     private String telefono;
     private String correo;
+
+    @ManyToOne
+    @JoinColumn(name="id_comuna", nullable = false)
+    private Comuna comuna;
+    @JsonIgnoreProperties("comuna")
 
     public Empleado() {
     }
@@ -49,5 +56,13 @@ public class Empleado {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public Comuna getComuna() {
+        return comuna;
+    }
+
+    public void setComuna(Comuna comuna) {
+        this.comuna = comuna;
     }
 }
